@@ -4,18 +4,18 @@ This assumes you have installed Android studio, Love2d and have a working Love2d
 
 Vscode is a recommended development environment with the love2d extension, but not essential to run your app on Android.  Love2d.org has the info on installing love2d.  The love2d extension to vscode made by pixelbytes works well.  I also found that the GitLens  extension also works well with git/github.
 
-##### Lu/Love2d part
+#### Lu/Love2d part
 
 1. Create a zip file of the contents of the app directory.
 2. Rename/name this zip file game.love
 
-##### Android Studio
+#### Android Studio
 
 Create a virtual device emulator.  I used Pixel3, API 30 which is Android 11 x86.  These first have to be installed via the SDK manager.  This one, API30, worked. 
 
 Create a signed key file.  build->Generate signed bundle...  Select APK.  select path.  Good to have the path in the same location as the apktools - just easer on the command line.  Enter in info that is asked for.  Note "key store path" also wants the file name.  same passwd for both key and file.  Generate only one key in the file.
 
-##### Apktool and apksigner
+#### Apktool and apksigner
 
 1. Download the apktool from this site and follow directions listed.  The instructions say to use `targetSdkVersion` to 29 in the yml fiel.   I had to use 30.  
    android:icon="@drawable/love" in the manifest file.  Change love to the name of the icon you want to use for your app.  Note there are several versions of the png file required at different pixel dimensions in `res/drawable-{mdpi,{x,{x,{x,}}}hdpi}` (mdpi, hdpi, xhdpi, xxhdpi, and xxxhdpi). 
