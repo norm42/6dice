@@ -31,4 +31,11 @@ Create a signed key file.  build->Generate signed bundle...  Select APK.  select
 ​		apksigner sign --verbose --ks mykey0.jks your_app_name.apk
 
 4. This assumes the jks file is in the same folder.  Otherwise add the path.  apksigner will ask for a password that you used to create the jks file, so have it handy.  It does not echo the password when you enter, so you run blind here.  No issue if you are incorrect, just try again.
-5. Run the emulator.  Drag/drop the apk file to the screen.   Then go to the app screen (slide up), you should see your icon that you can click on to run.
+
+5. Version 30 and above requires the apk to be 4 byte aligned.  I ran zipalign to correct this:
+
+   zipalign -f -v 4 input_apk output _apk
+
+   I found afterwards I needed to rerun step 3, apksigner again,  as zipalign seemed to remove the "signing".  Might work with step 5, then step 3.  However, the docs on zipalign say to do the signing first then zipalign.  
+
+6. Run the emulator.  Drag/drop the apk file to the screen.   Then go to the app screen (slide up), you should see your icon that you can click on to run.
